@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Errin – Your Chaotic AI Friend</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Basic styles for demo */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #1e1e2f;
+      color: #ddd;
+      margin: 0; padding: 1rem;
+      display: flex;
+      justify-content: center;
+      height: 100vh;
+      align-items: center;
+    }
+    #app {
+      max-width: 650px;
+      width: 100%;
+      background: #2a2a40;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #5c4d99;
+      padding: 1rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+    h1 {
+      margin: 0 0 1rem 0;
+      text-align: center;
+      color: #b57aff;
+    }
+    #errin-avatar img {
+      display: block;
+      margin: 0 auto 1rem auto;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid #b57aff;
+    }
+    #chat-output {
+      flex-grow: 1;
+      background: #18182f;
+      border-radius: 8px;
+      padding: 0.75rem;
+      overflow-y: auto;
+      max-height: 300px;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .message {
+      margin-bottom: 0.75rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 15px;
+      max-width: 80%;
+      word-wrap: break-word;
+    }
+    .message.user {
+      background: #5a3d91;
+      color: #fff;
+      align-self: flex-end;
+    }
+    .message.errin {
+      background: #7e65c7;
+      color: #fff;
+      align-self: flex-start;
+    }
+    #typing-indicator {
+      font-style: italic;
+      margin-bottom: 1rem;
+      color: #b57aff;
+      text-align: center;
+    }
+    #typing-indicator.hidden {
+      display: none;
+    }
+    #chat-form {
+      display: flex;
+      gap: 0.5rem;
+    }
+    #userInput {
+      flex-grow: 1;
+      padding: 0.5rem 0.75rem;
+      border-radius: 25px;
+      border: none;
+      font-size: 1rem;
+      outline: none;
+    }
+    #chat-form button {
+      background: #b57aff;
+      border: none;
+      border-radius: 25px;
+      padding: 0 1.5rem;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+    #chat-form button:hover {
+      background: #8e4dd8;
+    }
+    #voiceSelect {
+      margin-top: 0.75rem;
+      background: #2a2a40;
+      color: #ddd;
+      border-radius: 8px;
+      border: none;
+      padding: 0.5rem;
+      width: 100%;
+      font-size: 1rem;
+    }
+    label[for="voiceSelect"] {
+      margin-top: 1rem;
+      display: block;
+      font-size: 0.9rem;
+      color: #aaa;
+      text-align: center;
+    }
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>Errin</h1>
+    <div id="errin-avatar">
+      <img src="./assets/default.png" alt="Errin Avatar" />
+    </div>
+    <div id="chat-output" aria-live="polite" aria-atomic="true"></div>
+    <div id="typing-indicator" class="hidden">Errin is thinking<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+    <form id="chat-form" aria-label="Chat with Errin">
+      <input
+        type="text"
+        id="userInput"
+        name="userInput"
+        placeholder="Say something to Errin..."
+        autocomplete="off"
+        aria-required="true"
+      />
+      <button type="submit" aria-label="Send message">Send</button>
+    </form>
+    <label for="voiceSelect">Voice:</label>
+    <select id="voiceSelect" aria-label="Select voice for Errin"></select>
+    <div class="footer">
+      <img src="./assets/LogoPNG.png" class="logo">
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
